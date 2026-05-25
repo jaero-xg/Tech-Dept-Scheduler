@@ -6,12 +6,19 @@ import Header from "./components/Header";
 import SetupPanel from "./components/SetupPanel";
 import CoursesPanel from "./components/CoursesPanel";
 import SchedulePanel from "./components/SchedulePanel";
+import IntroPanel from "./components/IntroPanel";
+import MobileBottomNav from "./components/MobileBottomNav";
 
 export type TabId = "setup" | "courses" | "schedule";
 
 function AppShell() {
+  const [showIntro, setShowIntro] = useState(true);
   const [activeTab, setActiveTab] = useState<TabId>("setup");
   const { canInstall, triggerInstall, dismissInstall } = usePWA();
+
+  if (showIntro) {
+    return <IntroPanel onEnter={() => setShowIntro(false)} />;
+  }
 
   return (
     <div className="container">
@@ -19,6 +26,8 @@ function AppShell() {
       <SetupPanel isActive={activeTab === "setup"} />
       <CoursesPanel isActive={activeTab === "courses"} />
       <SchedulePanel isActive={activeTab === "schedule"} />
+
+      <MobileBottomNav activeTab={activeTab} onTabChange={setActiveTab} />
 
       {canInstall && (
         <div id="pwa-banner">

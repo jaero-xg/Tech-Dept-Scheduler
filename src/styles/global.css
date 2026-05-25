@@ -92,7 +92,7 @@ h2 { font-size: 1rem;    margin-bottom: 14px; }
 
 /* ── Header ──────────────────────────────────────────────── */
 header {
-  margin-bottom: 28px;
+  margin-bottom: 20px;
 }
 
 .school-logo-name {
@@ -663,11 +663,13 @@ header {
 
 /* ── Responsive ──────────────────────────────────────────── */
 @media (max-width: 768px) {
+  
   .container        { padding: 16px; }
   .schedule-grid    { font-size: 0.68rem; }
   .schedule-cell    { min-height: 50px; }
   .form-grid        { grid-template-columns: 1fr; }
   .stats-grid       { grid-template-columns: repeat(2, 1fr); }
+  
 }
 
 @media (max-width: 600px) {
